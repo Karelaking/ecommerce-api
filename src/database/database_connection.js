@@ -1,3 +1,5 @@
+// database connection function helps to connect to the database server.
+
 import mongoose from "mongoose";
 
 const databaseConnection = async (databaseUrl) => {

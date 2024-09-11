@@ -119,6 +119,9 @@ npm run dev
 ```
 The API should now be running on http://localhost:5000.
 
+## Data Model
+![database model](./docs/images/data-model.png)
+
 ## 📚 API Documentation
 The full API documentation is available via Swagger at /api-docs once the server is running. You can also import the provided Postman collection to test the API.
 
