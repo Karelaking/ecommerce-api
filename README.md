@@ -86,7 +86,7 @@ To run the API locally, follow these steps:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/ecommerce-api.git
+git clonehttps://github.com/Karelaking/ecommerce-api.git
 cd ecommerce-api
 ```
 ### 2. Install Dependencies
@@ -100,7 +100,7 @@ npm install
 Create a .env file in the root of the project and configure the following variables:
 
 ```bash
-PORT=5000
+PORT=your_port
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 REDIS_URL=your_redis_url
@@ -128,30 +128,29 @@ The full API documentation is available via Swagger at /api-docs once the server
 ## Key Endpoints
 
 ### Authentication
-- ```POST /api/auth/register```: Register a new user.
-- ```POST /api/auth/login```: Login with username and password.
+- ```POST /api/v1/auth/register```: Register a new user.
+- ```POST /api/v1/auth/login```: Login with username and password.
 
 ### User Oprations
-- ```GET /api/user/:id```: Get a user information.
-- ```PATCH /api/:id```: Update a user information.
-- ```DELETE /api/user/:id```: Delete the user.
+- ```GET /api/v1/user/:id```: Get a user information.
+- ```PATCH /api/v1/:id```: Update a user information.
+- ```DELETE /api/v1/user/:id```: Delete the user.
 
 ### Product Management
-- ```GET /api/products```: Get a list of all products.
-- ```POST /api/products```: Add a new product (Admin/Seller only).
-- ```PATCH /api/products/:id```: Update product details.
-- ```DELETE /api/products/:id```: Delete a product (Admin/Seller only).
+- ```GET /api/v1/products```: Get a list of all products.
+- ```POST /api/v1/products```: Add a new product (Admin/Seller only).
+- ```PATCH /api/v1/products/:id```: Update product details.
+- ```DELETE /api/v1/products/:id```: Delete a product (Admin/Seller only).
 
 ### Order Management
-- ```POST /api/orders```: Create a new order.
-- ```GET /api/orders/:id```: Get order details.
+- ```POST /api/v1/orders```: Create a new order.
+- ```GET /api/v1/orders/:id```: Get order details.
+- ```PATCH /api/v1/:id```: Update the order.
+- ```DELETE /api/v1/:id```: Delete the order.
 
 ### Cart Management
-- ```POST /api/cart```: Add items to the cart.
-- ```DELETE /api/cart/:id```: Remove items from the cart.
-
-## 🚀 Deployment
-You can deploy this project to Heroku, AWS, or any cloud provider. Below is an example of deploying to Heroku:
+- ```POST /api/v1/cart```: Add items to the cart.
+- ```GET /api/v1/cart/```: Get a all items from the cart.
 
 ### 1. Create a Heroku app:
 

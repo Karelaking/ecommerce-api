@@ -1,6 +1,6 @@
-FROM node:lts-alpine3.20
+FROM node:lts-slim
 WORKDIR /application
 COPY . /application
 RUN npm install
-EXPOSE 4000
+EXPOSE 5000
 CMD npm run dev
