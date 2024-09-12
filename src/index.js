@@ -1,12 +1,19 @@
+import { configDotenv } from "dotenv";
 import databaseConnection from "./database/database_connection.js";
 import { DB_NAME } from "./constants.js";
 import app from "./app.js";
 
+configDotenv({
+  path: "./.env",
+});
+
+
 const PORT = process.env.PORT || 8000;
+const MONGODB_DATABASE_URL = process.env.MONGODB_DATABASE_URL
 
 // Connect to the database
 databaseConnection(
-  `mongodb+srv://karelaking277:mradulkumar1@ecommerce-api.qhkq9.mongodb.net/${DB_NAME}`
+  `${MONGODB_DATABASE_URL}/${DB_NAME}`
 )
   .then(() => {
     app.listen(PORT, () => {
