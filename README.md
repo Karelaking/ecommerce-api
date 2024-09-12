@@ -119,7 +119,7 @@ npm run dev
 ```
 The API should now be running on http://localhost:5000.
 
-## Data Model
+## 💿 Data Model
 ![database model](./docs/images/data-model.png)
 
 ## 📚 API Documentation
@@ -131,10 +131,15 @@ The full API documentation is available via Swagger at /api-docs once the server
 - ```POST /api/auth/register```: Register a new user.
 - ```POST /api/auth/login```: Login with username and password.
 
+### User Oprations
+- ```GET /api/user/:id```: Get a user information.
+- ```PATCH /api/:id```: Update a user information.
+- ```DELETE /api/user/:id```: Delete the user.
+
 ### Product Management
 - ```GET /api/products```: Get a list of all products.
 - ```POST /api/products```: Add a new product (Admin/Seller only).
-- ```PUT /api/products/:id```: Update product details.
+- ```PATCH /api/products/:id```: Update product details.
 - ```DELETE /api/products/:id```: Delete a product (Admin/Seller only).
 
 ### Order Management

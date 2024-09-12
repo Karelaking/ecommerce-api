@@ -1,6 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
 
+const ACCESS_TOKEN_SECRET_KEY = process.env.ACCESS_TOKEN_SECRET_KEY;
+const ACCESS_TOKEN_EXPIRY = process.env.ACCESS_TOKEN_EXPIRY;
+const REFRESH_TOKEN_SECRET_KEY = process.env.REFRESH_TOKEN_SECRET_KEY;
+const REFRESH_TOKEN_EXPIRY = process.env.REFRESH_TOKEN_EXPIRY;
+
 userSchema = new Schema(
   {
     name: {
@@ -63,9 +68,23 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 };
 
 // Method to generate access token
-userSchema.methods.generateAccessToken = async function () {};
+userSchema.methods.generateAccessToken = async function () {
+  const accessToken = jwt.sign(
+    { userId: this._id, role: this.rolle, password: this.password },
+    ACCESS_TOKEN_SECRET_KEY,
+    { expiresIn: ACCESS_TOKEN_EXPIRY }
+  );
+  return accessToken;
+};
 
 // Method to generate refresh token
-userSchema.methods.generateRefreshToken = async function () {};
+userSchema.methods.generateRefreshToken = async function () {
+  const refreshToken = jwt.sign(
+    { userId: this._id },
+    REFRESH_TOKEN_SECRET_KEY,
+    { expiresIn: REFRESH_TOKEN_EXPIRY }
+  );
+  return refreshToken;
+};
 
 export const User = mongoose.model("User", userSchema);
