@@ -1,7 +1,6 @@
-// database connection function helps to connect to the database server.
-
 import mongoose from "mongoose";
 
+// database connection function helps to connect to the database server.
 const databaseConnection = async (databaseUrl) => {
   try {
     const dbConnection = await mongoose.connect(databaseUrl);
